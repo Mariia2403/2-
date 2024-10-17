@@ -2,7 +2,7 @@
 
 namespace _2_проба
 {
-    public class TCone : TCircle
+    public class TCone : TCircle 
     {
         double height;
 

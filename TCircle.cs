@@ -2,7 +2,7 @@
 
 namespace _2_проба
 {
-    public class TCircle 
+    public class TCircle
     {
         double radius;
         double angle;

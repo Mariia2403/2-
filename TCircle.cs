@@ -83,21 +83,21 @@ namespace _2_проба
         {
             return 2 * Math.PI * radius;
         }
-       
 
-       public  int Compare( TCircle circle_2)
+
+        public override int GetHashCode()
         {
-            if (Radius > circle_2.Radius)
-            {
-                return 1;
-            }
-            else if (Radius < circle_2.Radius)
-            {
-                return -1;
-            }
-            return 0;
-
+            return radius.GetHashCode();
         }
+        public override bool Equals(object obj)
+        {
+            if (obj == null || this.GetType() != obj.GetType())
+                return false;
+            TCone c = (TCone)obj;
+
+            return (radius == c.radius);
+        }
+
         public static TCircle operator +(TCircle circle_1, TCircle circle_2)
         {
             double sumRadius = circle_1.Radius + circle_2.Radius;

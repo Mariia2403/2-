@@ -35,33 +35,9 @@ namespace UnitTestProject2
             Assert.AreEqual(expectedSectorArea, actualSectorArea, "Площа сектора обчислена неправильно.");
         }
 
-        [TestMethod]
-        public void CompareTo_WithDifferentRadii_CorrectlyComparesCircles()
-        {
-            // Arrange
-            TCircle largerCircle = new TCircle(5);
-            TCircle smallerCircle = new TCircle(3);
+       
 
-            // Act
-            int result = largerCircle.Compare(smallerCircle);
-
-            // Assert
-            Assert.IsTrue(result > 0, "Перший круг має більший радіус, тому результат порівняння повинен бути позитивним.");
-        }
-
-        [TestMethod]
-        public void CompareTo_WithSameRadius_ReturnsZero()
-        {
-            // Arrange
-            TCircle circle1 = new TCircle(3);
-            TCircle circle2 = new TCircle(3);
-
-            // Act
-            int comparisonResult = circle1.Compare(circle2);
-
-            // Assert
-            Assert.AreEqual(0, comparisonResult, "Кола з однаковим радіусом повинні повертати 0.");
-        }
+      
         [TestMethod]
 
         public void ConeVolume_WithValidRadiusAndHeight_ReturnsCorrectVolume()
@@ -79,39 +55,7 @@ namespace UnitTestProject2
             Assert.AreEqual(expectedVolume, actualVolume, "Об'єм конуса обчислений неправильно.");
         }
 
-        [TestMethod]
-        public void CompareTo_WithDifferentVolumes_CorrectlyComparesCones()
-        {
-            // Arrange
-            TCone cone1 = new TCone { Radius = 3, Height = 5 }; // об'єм 47.12
-            TCone cone2 = new TCone { Radius = 2, Height = 4 }; // об'єм 16.76
-
-            cone1.CircleMethods();
-            cone2.CircleMethods();
-
-            // Act
-            int comparisonResult = cone1.Compare(cone2);
-
-            // Assert
-            Assert.IsTrue(comparisonResult > 0, "Перший конус має більший об'єм, тому результат порівняння повинен бути позитивним.");
-        }
-
-        [TestMethod]
-        public void CompareTo_WithSameVolume_ReturnsZero()
-        {
-            // Arrange
-            TCone cone1 = new TCone { Radius = 3, Height = 4 };
-            TCone cone2 = new TCone { Radius = 3, Height = 4 };
-
-            cone1.CircleMethods(); // Виклик для обчислення об'єму
-            cone2.CircleMethods(); // Виклик для обчислення об'єму
-
-            // Act
-            int comparisonResult = cone1.Compare(cone2);
-
-            // Assert
-            Assert.AreEqual(0, comparisonResult, "Конуси з однаковим об'ємом повинні повертати 0.");
-        }
+          
         [TestMethod]
         public void OperatorSubtraction_CorrectDifferenceOfCones()
         {

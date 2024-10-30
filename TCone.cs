@@ -11,6 +11,8 @@ namespace _2_проба
 
         public double volume { get; set; }
 
+       
+
         public TCone()
         {
             height = 1;
@@ -45,6 +47,7 @@ namespace _2_проба
         }
         public double ConeVolume()
         {
+
             return (Math.PI * Radius * Radius * height) / 3;
 
         }
@@ -115,18 +118,18 @@ namespace _2_проба
         {
             return $"Конус, з висотою {height}, радіусом {Radius} та кутом сектора {Angle}, має такі результати: ";
         }
-        public int Compare(TCone otherCone)
-        {
-            if (volume > otherCone.volume)
-            {
-                return 1;
-            }
-            else if (volume < otherCone.volume)
-            {
-                return -1;
-            }
-            return 0;
 
+        public override int GetHashCode()
+        {
+            return volume.GetHashCode();
+        }
+        public override bool Equals(object obj)
+        {
+            if (obj == null || this.GetType() != obj.GetType())
+                return false;
+            TCone c = (TCone)obj;
+
+            return (volume == c.volume);
         }
 
     }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Security.Policy;
 
 namespace _2_проба
 {
@@ -16,10 +15,10 @@ namespace _2_проба
                     Console.Clear();
                     TCircle circle_1 = new TCircle();
                     circle_1.Input();
-                  
+
                     TCircle circle_2 = new TCircle(circle_1);
                     circle_2.Input();
-                                                     
+
                     circle_1.CircleMethods();
                     circle_2.CircleMethods();
 
@@ -29,9 +28,8 @@ namespace _2_проба
                     Console.WriteLine(circle_2);
                     circle_2.Output();
 
-                    int compareRes = circle_1.Compare(circle_2);
-                    Compare(compareRes);
-                                                   
+                    Compare(circle_1, circle_2);
+
                     Console.WriteLine(circle_1);
                     circle_1.DisplayResRadii(circle_2);
 
@@ -61,8 +59,8 @@ namespace _2_проба
                     Console.WriteLine(cone_2);
                     cone_2.OutputRes();
 
-                    int compareResCone = cone_1.Compare(cone_2);
-                    CompareCone(compareResCone);
+                    //  bool resCompare = cone_1.Equals(cone_2);
+                    CompareCone(cone_1, cone_2);
 
                     Console.WriteLine(cone_1);
                     cone_1.DisplayOperatorResults(cone_2);
@@ -86,39 +84,32 @@ namespace _2_проба
             Console.Clear();
         }
 
-        static void Compare(int res)
+        static void Compare(TCircle circle_1, TCircle circle_2)
         {
-            if (res > 0 )
+            if (circle_1.GetHashCode() == circle_2.GetHashCode())
             {
-                Console.WriteLine("Перше коло більше другого.");
-            }
-            else if (res < 0)
-            {
-                Console.WriteLine("Перше коло менше другого.");
+                Console.WriteLine("Кола рівні");
             }
             else
             {
-                Console.WriteLine("Кола однакові за розміром.");
+                Console.WriteLine("Кола різні");
             }
-            
+            Console.WriteLine();
+            Console.WriteLine("///////////////////////////////");
         }
-        static void CompareCone(int compareCone) 
+        static void CompareCone(TCone cone_1, TCone cone_2)
         {
             Console.WriteLine();
-            if (compareCone > 0)
+            if (cone_1.GetHashCode() == cone_2.GetHashCode())
             {
-                Console.WriteLine("Перший конус більший");
-            }
-            else if (compareCone < 0)
-            {
-                Console.WriteLine("Другий конус більший");
+                Console.WriteLine("Конуси рівні");
             }
             else
             {
-                Console.WriteLine("Обидва конуси рівні.");
+                Console.WriteLine("Конуси різні");
             }
             Console.WriteLine();
-
+            Console.WriteLine("///////////////////////////////");
         }
 
 
